@@ -18,7 +18,8 @@ Sub Jarvis_User_Interaction()
 	    strLine= objFile.ReadLine
 	Loop
 	Sapi.speak "Hello" + strLine
-	wshshell.run("""C:\Users\ryank\Desktop\Programs\Coding Resources\Jarvis_v_1_0_2.vbs""")
+	strNamed = wshShell.ExpandEnvironmentStrings( "%USERNAME%" )
+	wshshell.run("""C:\Users\" + strNamed + "\Desktop\Programs\Coding Resources\Jarvis_v_1_0_2.vbs""")
 	Wscript.quit
 
 	If InStr(Command, "CHANGE") > 0Then
