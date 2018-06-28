@@ -197,7 +197,7 @@ body, html {
 <!-- Add Google Maps -->
 <script>
 function tablink(page){
-	var oldActive = document.getElementById("w3-bar-item w3-button active");
+	var oldActive = document.getElementByClassName("w3-bar-item w3-button active");
 	oldActive.className = "w3-bar-item w3-button";
 	var newActive = document.getElementById(page);
 	newActive.className += " active";
