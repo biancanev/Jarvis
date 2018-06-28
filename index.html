@@ -197,10 +197,15 @@ body, html {
 <!-- Add Google Maps -->
 <script>
 function tablink(page){
-	var oldActive = document.getElementByClassName("w3-bar-item w3-button active");
-	oldActive.className = "w3-bar-item w3-button";
-	var newActive = document.getElementById(page);
-	newActive.className += " active";
+	if(document.getElementByClassName("w3-bar-item w3-button active") == null){
+		var newActive = document.getElementById(page);
+		newActive.className += " active";	
+	}else{
+		var oldActive = document.getElementByClassName("w3-bar-item w3-button active");
+		oldActive.className = "w3-bar-item w3-button";
+		var newActive = document.getElementById(page);
+		newActive.className += " active";
+	}
 }
 function myMap()
 {
