@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+.active{
+	border-bottom: 2px solid yellow;
+	}
 .danger {
 	margin-bottom: 15px;
     padding: 4px 12px;
@@ -59,10 +62,10 @@ body, html {
     <a href="https://biancanev.github.io/Jarvis/" class="w3-bar-item w3-button w3-wide">JARVIS</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+      <a href="#about-a" class="w3-bar-item w3-button" onclick="tablink(about)" id="about">ABOUT</a>
       <a href="https://biancanev.github.io/Jarvis/pip-install" class="w3-bar-item w3-button"><i class="fa fa-download"></i> INSTALL</a>
-      <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-globe"></i> NEWS</a>
-      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="#work-a" class="w3-bar-item w3-button"><i class="fa fa-globe" onclick="tablink(news)" id="news"></i> NEWS</a>
+      <a href="#contact-a" class="w3-bar-item w3-button"><i class="fa fa-envelope" onclick="tablink(contact)" id="contact"></i> CONTACT</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -75,11 +78,10 @@ body, html {
 <!-- Sidebar on small screens when clicking the menu icon -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="https://biancanev.github.io/Jarvis/pip-install" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">INSTALL</a>
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">NEWS</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  <a href="#about-a" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="https://biancanev.github.io/Jarvis/pip-install" onclick="w3_close()" class="w3-bar-item w3-button">INSTALL</a>
+  <a href="#work-a" onclick="w3_close()" class="w3-bar-item w3-button">NEWS</a>
+  <a href="#contact-a" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
 
 <!-- Header with full-height image -->
@@ -101,7 +103,7 @@ body, html {
 </header>
 
 <!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
+<div class="w3-container" style="padding:128px 16px" id="about-a">
   <h3 class="w3-center">ABOUT JARVIS</h3>
   <p class="w3-center w3-large">Key features of Jarvis</p>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
@@ -134,7 +136,7 @@ body, html {
 
 
 <!-- Work Section -->
-<div class="w3-container" style="padding:128px 16px" id="work">
+<div class="w3-container" style="padding:128px 16px" id="work-a">
 <h3>News</h3>
 	<hr>
 	<div class="w3-card-4" style="padding:12px 12px;">
@@ -153,7 +155,7 @@ body, html {
 </div>
 
 <!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact-a">
   <h3 class="w3-center">CONTACT</h3>
   <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
   <div class="w3-row-padding" style="margin-top:64px">
@@ -195,6 +197,10 @@ body, html {
  
 <!-- Add Google Maps -->
 <script>
+function tablink(page){
+	var newActive = document.getElementById(page);
+	newActive.className += " active";
+}
 function myMap()
 {
   myCenter=new google.maps.LatLng(41.878114, -87.629798);
