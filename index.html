@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-.w3-bar-item w3-button active{
+.active{
 	border-bottom: 2px solid #ffd526;
 	}
 .danger {
@@ -61,10 +61,10 @@ body, html {
     <a href="https://biancanev.github.io/Jarvis/" class="w3-bar-item w3-button w3-wide">JARVIS</a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
-      <a href="#about-a" class="w3-bar-item w3-button active" onclick="tablink(about)" id="about">ABOUT</a>
+      <a href="#about-a" class="w3-bar-item w3-button" id="btn">ABOUT</a>
       <a href="https://biancanev.github.io/Jarvis/pip-install" class="w3-bar-item w3-button"><i class="fa fa-download"></i> INSTALL</a>
-      <a href="#work-a" class="w3-bar-item w3-button"><i class="fa fa-globe" onclick="tablink(news)" id="news"></i> NEWS</a>
-      <a href="#contact-a" class="w3-bar-item w3-button"><i class="fa fa-envelope" onclick="tablink(contact)" id="contact"></i> CONTACT</a>
+      <a href="#work-a" class="w3-bar-item w3-button"><i class="fa fa-globe" id="btn"></i> NEWS</a>
+      <a href="#contact-a" class="w3-bar-item w3-button"><i class="fa fa-envelope" id="btn"></i> CONTACT</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -189,6 +189,15 @@ body, html {
  
 <!-- Add Google Maps -->
 <script>
+var header = document.getElementById("myNavbar");
+var btns = header.getElementsById("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
 function tablink(page){
 	if(document.getElementByClassName("w3-bar-item w3-button active") == null){
 		var newActive = document.getElementById(page);
